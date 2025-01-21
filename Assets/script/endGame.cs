@@ -12,7 +12,7 @@ public class endGame : MonoBehaviour {
     }
     public void Restart()
     {
-        SceneManager.LoadScene("start_again");
+        SceneManager.LoadScene("start");
     }
     public void endGameLast()
     {
