@@ -9,11 +9,16 @@ public class endGameScore : MonoBehaviour
     public TextMeshProUGUI level1;
     public TextMeshProUGUI level2;
     public TextMeshProUGUI level3;
+
+    public TextMeshProUGUI total;
+
     void Start()
     {
         level1.gameObject.SetActive(true);
         level2.gameObject.SetActive(true);
         level3.gameObject.SetActive(true);
+
+        total.gameObject.SetActive(true);
         getHighScore();
     }
 
@@ -27,6 +32,8 @@ public class endGameScore : MonoBehaviour
         
         int highScoreForScene3 = HighScore.GetHighScoreForScene("level3");
         level3.text = "Level3:" + highScoreForScene3;
+
+        total.text = "Total:"+(highScoreForScene1 + highScoreForScene2 + highScoreForScene3);
     }
 
 

@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9654bab1be285489d12bbc2bd80850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2.6
+  moveSpeed: 2.4
   stoppingDistance: 0.5
 --- !u!210 &1029891100785108446
 SortingGroup:

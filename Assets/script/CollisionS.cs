@@ -67,7 +67,7 @@ public class CollisionS : MonoBehaviour
             if (enemyCount > 1){ // 如果範圍內有多於 1 個敵人
 
                 score -= 10; // 扣 10
-                ReduceHP(13); 
+                ReduceHP(12); 
                 DestroyEnemy(nearbyEnemies); // 銷毀所有範圍內的敵人
                 Debug.Log("範圍內有多個敵人，-10");
             }
@@ -85,14 +85,14 @@ public class CollisionS : MonoBehaviour
 
         if (collisionInfo.tag == "bonus"){ //撞到bonus
             score += 22; // 加22
-            bonusHP(9);
+            bonusHP(10);
             Debug.Log("+22");
             Destroy(collisionInfo.gameObject); // 銷毀該bonus
         }
 
         if (collisionInfo.tag == "BossEnemy"){ //撞到BOSSenemy
             score -= 18; // -18
-            ReduceHP(20);
+            ReduceHP(18);
             Debug.Log("-BOSS 18");
             Destroy(collisionInfo.gameObject); // 銷毀該BOSSenemy
         }
