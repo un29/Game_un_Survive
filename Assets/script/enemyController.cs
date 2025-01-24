@@ -14,10 +14,10 @@ public class enemyController : MonoBehaviour
     public float spawnTime= 2f; // 生成間隔時間（秒）
 
     void Start(){
-        // 更新邊界
-        UpdateBoundaries();
         // 開始定期生成敵人
         InvokeRepeating("SpawnEnemies", 0.5f, spawnTime);
+        // 更新邊界
+        UpdateBoundaries();
     }
 
     void SpawnEnemies(){
@@ -46,6 +46,9 @@ public class enemyController : MonoBehaviour
                 Debug.LogWarning("無法在安全距離外生成敵人");
                 break;
             }
+
+            // 更新邊界
+            UpdateBoundaries();
         }
     }
     void UpdateBoundaries()

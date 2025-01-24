@@ -595,7 +595,7 @@ MonoBehaviour:
   enemyCount: 4
   player: {fileID: 2539102257325033735}
   minDistance: 2
-  spawnTime: 2
+  spawnTime: 2.2
 --- !u!114 &590556085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -641,10 +641,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BossEnemyPrefab: {fileID: 2565008065718241966, guid: 47e17dcc32aca7e4282a55b0746bf37b, type: 3}
-  BossEnemyCount: 4
+  BossEnemyCount: 1
   player: {fileID: 2539102257325033735}
   minDistance: 2.5
-  spawnTime: 4
+  spawnTime: 5.5
 --- !u!114 &590556088
 MonoBehaviour:
   m_ObjectHideFlags: 0

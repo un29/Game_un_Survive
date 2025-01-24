@@ -15,7 +15,9 @@ public class BossEnemy : MonoBehaviour
 
     void Start(){
         // 開始定期生成敵人
-        InvokeRepeating("SpawnBossEnemies", 0.5f, spawnTime);
+        InvokeRepeating("SpawnBossEnemies", 0.8f, spawnTime);
+        // 更新邊界
+        UpdateBoundaries();
     }
 
     void SpawnBossEnemies(){
@@ -46,6 +48,8 @@ public class BossEnemy : MonoBehaviour
                 Debug.LogWarning("無法在安全距離外生成敵人！");
                 break;
             }
+            // 更新邊界
+            UpdateBoundaries();
         }
     }
     void UpdateBoundaries()
