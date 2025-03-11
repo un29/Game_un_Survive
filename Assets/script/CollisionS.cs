@@ -74,8 +74,15 @@ public class CollisionS : MonoBehaviour
 
             else{ // 如果範圍內只有 1 個敵人
                 score += 12; // +12
-                bonusHP(2); 
-                Destroy(collisionInfo.gameObject); // 銷毀該敵人
+                bonusHP(2);
+
+                if (EnemyPool.Instance == null)
+                {
+                    Debug.LogError("EnemyPool.Instance 為 null！請確保場景中有 EnemyPool 物件。");
+                    return;
+                }
+                EnemyPool.Instance.ReturnEnemy(collisionInfo.gameObject); // 回收敵人
+                
 
                 // 播放特效
                 GameObject effect = Instantiate(killEffect, collisionInfo.transform.position, Quaternion.identity);
@@ -102,7 +109,10 @@ public class CollisionS : MonoBehaviour
 
     void DestroyEnemy(Collider2D[] enemies) {
         // 銷毀列表中的所有敵人
-        foreach (Collider2D enemy in enemies){
+        foreach (Collider2D enemy in enemies)
+        {
+            score -= 5; // 每個敵人扣5分，避免過大扣分
+            ReduceHP(3); // 每個敵人造成少量傷害
             Destroy(enemy.gameObject);
         }
     }
@@ -171,10 +181,15 @@ public class CollisionS : MonoBehaviour
         //Debug.Log("開啟特效heal");
         Invoke("DisablePlayerHealEffect", 0.5f); // 延遲0.5秒執行
 
-        if (currentHP <= maxHP){
-            currentHP += upHP; // 加血量
-            updateHPBar();       // 更新血條顯示
+        // 確保血量不會超過最大值
+        if (currentHP + upHP > maxHP){
+            currentHP = maxHP;
         }
+        else{
+            currentHP += upHP;
+        }
+
+        updateHPBar();
     }
 
     void DisablePlayerHitEffect(){

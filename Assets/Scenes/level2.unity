@@ -695,6 +695,7 @@ GameObject:
   - component: {fileID: 590556087}
   - component: {fileID: 590556088}
   - component: {fileID: 590556090}
+  - component: {fileID: 590556091}
   m_Layer: 0
   m_Name: GameManager2
   m_TagString: Untagged
@@ -733,7 +734,7 @@ MonoBehaviour:
   enemyCount: 4
   player: {fileID: 2539102257325033735}
   minDistance: 2
-  spawnTime: 2.5
+  spawnTime: 2.4
 --- !u!114 &590556085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -782,7 +783,7 @@ MonoBehaviour:
   BossEnemyCount: 1
   player: {fileID: 2539102257325033735}
   minDistance: 2.5
-  spawnTime: 6.5
+  spawnTime: 5
 --- !u!114 &590556088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -813,6 +814,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highScore: {fileID: 3382586920582756393}
   playercollision: {fileID: 5445272917510920570}
+--- !u!114 &590556091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590556082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2525fc9412a7e445bb6fd6326e93529, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 1483703364792407476, guid: 13470fdaec4bfb64599272ab263408df, type: 3}
+  poolSize: 10
+  Radius: 2
+  gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+  detectionRadius: 0.5
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &853031766
 GameObject:
   m_ObjectHideFlags: 0

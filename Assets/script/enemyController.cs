@@ -37,9 +37,13 @@ public class enemyController : MonoBehaviour
             }
             while (Vector2.Distance(spawnPosition, player.position) < minDistance && attempts < maxAttempts);
 
-            if (attempts < maxAttempts){ 
-                Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);// 創建敵人
+            if (attempts < maxAttempts){
+                // 使用物件池從EnemyPool中獲取敵人
+                GameObject enemy = EnemyPool.Instance.GetEnemy(spawnPosition); // 從物件池中獲取敵人
+                
+                //Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);// 創建敵人
                 //(Prefab,生成的位置,生成旋轉角度"無旋轉")
+                
                 spawnedEnemies++;
             }
             else{
@@ -51,6 +55,8 @@ public class enemyController : MonoBehaviour
             UpdateBoundaries();
         }
     }
+
+
     void UpdateBoundaries()
     {
         // 獲取攝影機的邊界

@@ -78,9 +78,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 471357179
+  m_SortingLayer: 1
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: bae22b3ececd8c84eb406c851a2c4588, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -132,9 +132,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  minBoundary: {x: -4.5, y: -4.5}
-  maxBoundary: {x: 4.5, y: 3.1}
-  movement: {x: 0, y: 0}
 --- !u!114 &3034694463377501871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,12 +144,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 918f79d70b06be6419fe3a92dd6b7c7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
   timeText: {fileID: 0}
+  scoreText: {fileID: 0}
   gameOverText: {fileID: 0}
-  restartButton: {fileID: 0}
+  TryAgainButton: {fileID: 0}
   nextLevelText: {fileID: 0}
   nextlevelButton: {fileID: 0}
+  score: 0
   bgover: {fileID: 0}
   hpBar: {fileID: 0}
   maxHP: 100

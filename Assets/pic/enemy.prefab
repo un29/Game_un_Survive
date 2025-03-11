@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1519679815828908555}
   - component: {fileID: 5478044161343035872}
   - component: {fileID: 1029891100785108446}
+  - component: {fileID: 1747375260721663258}
   m_Layer: 6
   m_Name: enemy
   m_TagString: enemy
@@ -74,8 +75,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 471357179
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2c203ffc56f1b7a46878bfc551578b65, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -162,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9654bab1be285489d12bbc2bd80850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2.2
+  moveSpeed: 1.7
   stoppingDistance: 0.5
 --- !u!210 &1029891100785108446
 SortingGroup:
@@ -174,5 +175,17 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 471357179
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_SortAtRoot: 0
+--- !u!114 &1747375260721663258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483703364792407476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10a817cfe95cc34aae3154a7a9ace18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
