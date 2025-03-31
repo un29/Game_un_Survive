@@ -5,17 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class endGame : MonoBehaviour {
 
-    public void Quit()
-    {
-     Debug.Log("Quit");
-     Application.Quit();
+    //結束
+    public void Quit(){
+
+      //Debug.Log("Quit");
+       Application.Quit();
+
     }
-    public void Restart()
-    {
+
+    //重新跳到start scene
+    public void Restart(){
         SceneManager.LoadScene("start");
     }
-    public void endGameLast()
-    {
+
+    //跳到end scence
+    public void endGameLast(){
         SceneManager.LoadScene("end");
     }
 

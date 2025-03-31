@@ -6,22 +6,23 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class nextLevel3 : MonoBehaviour{
-    public Image bgover; // 底圖
-    public TextMeshProUGUI startCountdownText;
-    public TextMeshProUGUI levelText; //時間
+    public Image bgover;                        //底圖
+    public TextMeshProUGUI startCountdownText;  //倒數
+    public TextMeshProUGUI levelText;           //時間
     public TextMeshProUGUI un;
 
-    void Start()
-    {
+    void Start(){
+
         Debug.Log("遊戲開始3");
+
         startCountdownText.gameObject.SetActive(false);
         levelText.gameObject.SetActive(false);
         bgover.gameObject.SetActive(false);
         un.gameObject.SetActive(false);
     }
 
-    public void LevelButtonClicked3()
-    {
+    public void LevelButtonClicked3(){
+
         startCountdownText.gameObject.SetActive(true);
         levelText.gameObject.SetActive(true);
         bgover.gameObject.SetActive(true);
@@ -30,27 +31,25 @@ public class nextLevel3 : MonoBehaviour{
         StartCoroutine(GameTimer());
     }
 
-    IEnumerator GameTimer()
-    {
-        Debug.Log("進入協程");
-        levelText.text = "Level 3";// 設置文字內容
+    //進入協程
+    IEnumerator GameTimer(){
 
-        // 倒數 3 秒
-        for (int i = 3; i > 0; i--)
-        {
-            startCountdownText.text = i.ToString(); // 更新倒數文字
-            yield return new WaitForSecondsRealtime(1f);    // 每秒更新一次
+        //設置文字內容
+        levelText.text = "Level 3";
+
+        //倒數 3 秒
+        for (int i = 3; i > 0; i--){
+
+            //更新倒數文字
+            startCountdownText.text = i.ToString();
+
+            //每秒更新一次
+            yield return new WaitForSecondsRealtime(1f);    
         }
 
-        Debug.Log("倒數三秒結束");
+        Debug.Log("倒數三秒結束 遊戲開始");
 
         // 加載遊戲場景
         SceneManager.LoadScene("level3");
-
-        /*startCountdownText.gameObject.SetActive(false);
-        levelText.gameObject.SetActive(false);
-        bgover.gameObject.SetActive(false);*/
-
-        Debug.Log("遊戲開始");
     }
 }
