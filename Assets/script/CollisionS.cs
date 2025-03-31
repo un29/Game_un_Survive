@@ -62,7 +62,7 @@ public class CollisionS : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D collisionInfo){
-        //如果遊戲結束，停止一切操作
+        //如果遊戲結束 停止一切操作
         if (isGameOver) return;
 
         //如果撞到enemy
