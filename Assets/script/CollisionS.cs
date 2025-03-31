@@ -29,7 +29,7 @@ public class CollisionS : MonoBehaviour
     public float gameTime = 30f;            //遊戲時間(秒)
     private bool isGameOver = false;        //遊戲暫停
 
-    public GameObject killEffect;           //kill特效
+    public GameObject killEffect;           //特效
     public GameObject player_hit_effect; 
     public GameObject player_heal_effect;
 
