@@ -663,6 +663,7 @@ GameObject:
   - component: {fileID: 660103154}
   - component: {fileID: 660103153}
   - component: {fileID: 660103152}
+  - component: {fileID: 660103156}
   m_Layer: 5
   m_Name: newGame
   m_TagString: Untagged
@@ -808,6 +809,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 660103150}
   m_CullTransparentMesh: 1
+--- !u!114 &660103156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660103150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e95cf6644582574689f9325b21265bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickSound: {fileID: 8300000, guid: 81652031b64c342cc8dbc59c138d77c5, type: 3}
 --- !u!1 &860213731
 GameObject:
   m_ObjectHideFlags: 0
@@ -1206,6 +1220,7 @@ GameObject:
   - component: {fileID: 1206642444}
   - component: {fileID: 1206642445}
   - component: {fileID: 1206642446}
+  - component: {fileID: 1206642447}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -1244,6 +1259,8 @@ MonoBehaviour:
   startCountdownText: {fileID: 1882305554577484665}
   levelText: {fileID: 8519408507894634875}
   un: {fileID: 6083234381467737346}
+  audioSource: {fileID: 1206642447}
+  countdownClip: {fileID: 8300000, guid: cf6c0e7fbef9449c98a0cdb5ea0c4d9f, type: 3}
 --- !u!114 &1206642445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1259,6 +1276,8 @@ MonoBehaviour:
   bgover: {fileID: 2319949084276383222}
   FirstInfoText: {fileID: 480921412}
   un: {fileID: 6083234381467737346}
+  audioSource: {fileID: 1206642447}
+  soundClip: {fileID: 8300000, guid: 79180f511d89441b9aa23ccae1992fe0, type: 3}
 --- !u!114 &1206642446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1271,6 +1290,102 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce764bd14e8bf744b9d9aeea0d45227c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &1206642447
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206642442}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.6
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1346444155
 GameObject:
   m_ObjectHideFlags: 0
@@ -1284,6 +1399,7 @@ GameObject:
   - component: {fileID: 1346444159}
   - component: {fileID: 1346444158}
   - component: {fileID: 1346444157}
+  - component: {fileID: 1346444161}
   m_Layer: 5
   m_Name: Startagain
   m_TagString: Untagged
@@ -1417,6 +1533,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1346444155}
   m_CullTransparentMesh: 1
+--- !u!114 &1346444161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346444155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e95cf6644582574689f9325b21265bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickSound: {fileID: 8300000, guid: 81652031b64c342cc8dbc59c138d77c5, type: 3}
 --- !u!1 &1722172971
 GameObject:
   m_ObjectHideFlags: 0
@@ -8258,7 +8387,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'will kill you
+  m_text: '2up will kill you
 
 '
   m_isRightToLeft: 0
@@ -8987,8 +9116,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 206.99995, y: -37.41349}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 219.65152, y: -37.41349}
+  m_SizeDelta: {x: 237.9545, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &9052408301876294962
 GameObject:
