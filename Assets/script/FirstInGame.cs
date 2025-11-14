@@ -1,33 +1,45 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FirstInGame : MonoBehaviour{
-
-    public Image bgover;                    //©³ΉΟ
+public class FirstInGame : MonoBehaviour
+{
+    public Image bgover;                    //εΊ•ε–
     public TextMeshProUGUI FirstInfoText;
-    public TextMeshProUGUI un;          
+    public TextMeshProUGUI un;
 
-    void Start(){
+    // ι³ζ•
+    public AudioSource audioSource;
+    public AudioClip soundClip;
 
-        //Εγ¥ά
+    void Start()
+    {
+        // ι΅―η¤Ίε°ιΆ
         bgover.gameObject.SetActive(true);
         FirstInfoText.gameObject.SetActive(true);
         un.gameObject.SetActive(true);
 
-        StartCoroutine(GameTimer());
+        // ζ’­ζ”Ύι³ζ•
+        if (audioSource != null && soundClip != null)
+        {
+            audioSource.PlayOneShot(soundClip);
+        }
+
+        // θ‡ªε‹•ι±θ—ε°ιΆ
+        StartCoroutine(HideCover());
     }
 
-    //¨σµ{ («Κ­±¶i¤JΉCΐΈ)
-    IEnumerator GameTimer(){
-
-        //µ¥«έ2.5s
+    //ε”η¨‹ (ε°ιΆι€²ε…¥ιζ²)
+    IEnumerator HideCover()
+    {
+        //η­‰εΎ…2.5s
         yield return new WaitForSecondsRealtime(2.5f);
 
         bgover.gameObject.SetActive(false);
         FirstInfoText.gameObject.SetActive(false);
-        Debug.Log("«Κ­±¶i¤JΉCΐΈ");
+        un.gameObject.SetActive(false);
+
+        Debug.Log("ε°ιΆι€²ε…¥ιζ²");
     }
- }
+}
