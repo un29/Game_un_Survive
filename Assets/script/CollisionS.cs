@@ -1,7 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CollisionS : MonoBehaviour
@@ -28,10 +29,14 @@ public class CollisionS : MonoBehaviour
 
     public float gameTime = 30f;            //遊戲時間(秒)
     private bool isGameOver = false;        //遊戲暫停
+    private bool isPaused = false;          //是否暫停中
 
     public GameObject killEffect;           //kill特效
     public GameObject player_hit_effect; 
     public GameObject player_heal_effect;
+
+    public AudioClip bonusSound;            //撞到 bonus 的音效
+    public AudioSource audioSource;         //用來播放音效的AudioSource
 
 
     void Start(){
@@ -57,18 +62,21 @@ public class CollisionS : MonoBehaviour
         player_hit_effect.gameObject.SetActive(false);
         player_heal_effect.gameObject.SetActive(false);
 
+
         //啟動遊戲計時器
         StartCoroutine(GameTimer());    
     }
 
+
+
     void OnTriggerEnter2D(Collider2D collisionInfo){
-        //如果遊戲結束 停止一切操作
+        //如果遊戲結束，停止一切操作
         if (isGameOver) return;
 
         //如果撞到enemy
         if (collisionInfo.tag == "enemy"){
 
-            // 搜索附近的敵人 (point,radius,layerMask)
+            //搜索附近的敵人 (point,radius,layerMask)
             Collider2D[] nearbyEnemies = Physics2D.OverlapCircleAll(transform.position, detectionRadius, enemyLayer);
             int enemyCount = nearbyEnemies.Length;
 
@@ -84,8 +92,8 @@ public class CollisionS : MonoBehaviour
 
             }else{ //如果範圍內只有 1 個敵人
 
-                //扣10分 扣血12
-                score += 12; // +12
+                //加12分 回血2分
+                score += 12;
                 bonusHP(2);
 
                 //如果EnemyPool.Instance 為 null
@@ -109,6 +117,11 @@ public class CollisionS : MonoBehaviour
             score += 22;
             bonusHP(10);
 
+            // 播放音效（不受物件刪除影響）
+            if (bonusSound != null)
+                AudioSource.PlayClipAtPoint(bonusSound, transform.position);
+
+
             //銷毀bonus
             Destroy(collisionInfo.gameObject);
         }
@@ -128,7 +141,7 @@ public class CollisionS : MonoBehaviour
         updateScoreText();
     }
 
-    void DestroyEnemy(Collider2D[] enemies) {
+    void DestroyEnemy(Collider2D[] enemies){
 
         //銷毀列表的所有敵人(當範圍內 敵人 > 1 個敵人)
         foreach (Collider2D enemy in enemies){
@@ -157,7 +170,7 @@ public class CollisionS : MonoBehaviour
             if (isGameOver) yield break;
 
             //unscaledDeltaTime忽略時間縮放
-            elapsedTime += Time.unscaledDeltaTime;
+            elapsedTime += Time.deltaTime;
 
             //倒數(換成整數)
             int timeCount = startTime - Mathf.FloorToInt(elapsedTime);
@@ -178,7 +191,7 @@ public class CollisionS : MonoBehaviour
             TriggerGameOver(); 
         }else{
 
-            //達標  顯示nextLevel暫停遊戲
+            //達標 顯示nextLevel暫停遊戲
             TriggernextLevelOver();
         }
     }
