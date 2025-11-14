@@ -1,55 +1,63 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using Unity.VisualScripting;
 
-public class StartGame : MonoBehaviour{
-    public Image bgover;                        //©³¹Ï
-    public TextMeshProUGUI startCountdownText;  //­Ë¼Æ
-    public TextMeshProUGUI levelText;           //®É¶¡
+public class StartGame : MonoBehaviour
+{
+    public Image bgover;                        //åº•åœ–
+    public TextMeshProUGUI startCountdownText;  //å€’æ•¸
+    public TextMeshProUGUI levelText;           //ç­‰ç´šæ–‡å­—
     public TextMeshProUGUI un;
+
+    //éŸ³æ•ˆç›¸é—œ
+    public AudioSource audioSource;             //æ’­æ”¾ç”¨ AudioSource
+    public AudioClip countdownClip;             //å€’æ•¸éŸ³æ•ˆ
 
     void Start()
     {
-        //ÁôÂÃ­Ë¼Æ¬ÛÃöªº UI
+        //éš±è—å€’æ•¸ UI
         startCountdownText.gameObject.SetActive(false);
         levelText.gameObject.SetActive(false);
         bgover.gameObject.SetActive(false);
         un.gameObject.SetActive(false);
     }
 
-    public void StartButtonClicked(){
+    public void StartButtonClicked()
+    {
         startCountdownText.gameObject.SetActive(true);
         levelText.gameObject.SetActive(true);
         bgover.gameObject.SetActive(true);
         un.gameObject.SetActive(true);
 
         StartCoroutine(GameTimer());
-    
     }
 
-    //¶i¤J¨óµ{
-    IEnumerator GameTimer(){
-
-        //³]¸m¤å¦r¤º®e
+    //é€²å…¥å”ç¨‹
+    IEnumerator GameTimer()
+    {
         levelText.text = "Level 1";
 
-        //­Ë¼Æ 3 ¬í
-        for (int i = 3; i > 0; i--){
-
-            //§ó·s­Ë¼Æ¤å¦r ("­Ë¼Æ: " + i)
+        //å€’æ•¸ 3 ç§’
+        for (int i = 3; i > 0; i--)
+        {
+            //æ›´æ–°å€’æ•¸æ–‡å­— ("å€’æ•¸: " + i)
             startCountdownText.text = i.ToString();
 
-            //¨C¬í§ó·s¤@¦¸
-            yield return new WaitForSecondsRealtime(1f);    
+            //æ’­æ”¾å€’æ•¸éŸ³æ•ˆ
+            if (audioSource != null && countdownClip != null)
+            {
+                audioSource.PlayOneShot(countdownClip);
+            }
+
+            //æ¯ç§’æ›´æ–°ä¸€æ¬¡
+            yield return new WaitForSecondsRealtime(1f);
         }
 
-        Debug.Log("­Ë¼Æ¤T¬íµ²§ô ¹CÀ¸¶}©l");
+        Debug.Log("å€’æ•¸ä¸‰ç§’çµæŸ éŠæˆ²é–‹å§‹");
 
-        //¥[¸ü¹CÀ¸³õ´º
-        SceneManager.LoadScene("main"); //´À´«¬° "main" ³õ´º
+        //åŠ è¼‰éŠæˆ²å ´æ™¯
+        SceneManager.LoadScene("main"); //æ›¿æ›ç‚ºä½ çš„éŠæˆ²å ´æ™¯åç¨±
     }
 }
