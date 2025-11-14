@@ -5,16 +5,18 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class nextLevel2 : MonoBehaviour
-{
-    public Image bgover;                        //©³¹Ï
-    public TextMeshProUGUI startCountdownText;  //­Ë¼Æ
-    public TextMeshProUGUI levelText;           //®É¶¡
+public class nextLevel2 : MonoBehaviour{
+    public Image bgover;                        //åº•åœ–
+    public TextMeshProUGUI startCountdownText;  //å€’æ•¸
+    public TextMeshProUGUI levelText;           //æ™‚é–“
     public TextMeshProUGUI un;
 
-    void Start(){
+    //åªéœ€è¦å€’æ•¸éŸ³æ•ˆ
+    public AudioSource audioSource;
+    public AudioClip countdownClip;
 
-        Debug.Log("¹CÀ¸¶}©l2");
+    void Start(){
+        Debug.Log("éŠæˆ²é–‹å§‹2");
 
         startCountdownText.gameObject.SetActive(false);
         levelText.gameObject.SetActive(false);
@@ -22,9 +24,7 @@ public class nextLevel2 : MonoBehaviour
         un.gameObject.SetActive(false);
     }
 
-
     public void LevelButtonClicked2(){
-
         startCountdownText.gameObject.SetActive(true);
         levelText.gameObject.SetActive(true);
         un.gameObject.SetActive(true);
@@ -33,25 +33,28 @@ public class nextLevel2 : MonoBehaviour
         StartCoroutine(GameTimer());
     }
 
-    //¶i¤J¨óµ{
+    //é€²å…¥å”ç¨‹
     IEnumerator GameTimer(){
-
-        // ³]¸m¤å¦r¤º®e
+        //è¨­ç½®æ–‡å­—å…§å®¹
         levelText.text = "Level 2";
 
-        //­Ë¼Æ 3 ¬í
+        //å€’æ•¸ 3 ç§’
         for (int i = 3; i > 0; i--){
-
-            //§ó·s­Ë¼Æ¤å¦r ("­Ë¼Æ: " + i)
+            //æ›´æ–°å€’æ•¸æ–‡å­— ("å€’æ•¸: " + i)
             startCountdownText.text = i.ToString();
 
-            // ¨C¬í§ó·s¤@¦¸
-            yield return new WaitForSecondsRealtime(1f);    
+            //æ’­æ”¾å€’æ•¸éŸ³æ•ˆ
+            if (countdownClip != null && audioSource != null){
+                audioSource.PlayOneShot(countdownClip);
+            }
+
+            //æ¯ç§’æ›´æ–°ä¸€æ¬¡
+            yield return new WaitForSecondsRealtime(1f);
         }
 
-        Debug.Log("­Ë¼Æ¤T¬íµ²§ô ¹CÀ¸¶}©l");
+        Debug.Log("å€’æ•¸ä¸‰ç§’çµæŸ éŠæˆ²é–‹å§‹");
 
-        //¥[¸ü¹CÀ¸³õ´º
+        //åŠ è¼‰éŠæˆ²å ´æ™¯
         SceneManager.LoadScene("level2");
     }
 }
